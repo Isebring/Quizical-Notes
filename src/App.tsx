@@ -1,10 +1,12 @@
-import { Box, Title } from '@mantine/core';
-import './App.css';
+import { Box } from '@mantine/core';
+import { Outlet } from 'react-router-dom';
 
 function App() {
   return (
     <Box>
-      <Title order={1}>Quizical Notes</Title>
+      <main>
+        <Outlet />
+      </main>
     </Box>
   );
 }
