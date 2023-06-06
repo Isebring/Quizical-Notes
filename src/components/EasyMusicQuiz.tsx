@@ -1,4 +1,12 @@
-import { Box, Button, Container, Flex, Paper, Text } from '@mantine/core';
+import {
+  Box,
+  Button,
+  Container,
+  Flex,
+  Loader,
+  Paper,
+  Text,
+} from '@mantine/core';
 import axios from 'axios';
 import he from 'he';
 import { useEffect, useState } from 'react';
@@ -14,6 +22,7 @@ function EasyMusicQuiz() {
   const [loading, setLoading] = useState<boolean>(true);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
   const [score, setScore] = useState<number>(0);
+  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchQuestions = async () => {
@@ -21,7 +30,6 @@ function EasyMusicQuiz() {
         const response = await axios.get(
           'https://opentdb.com/api.php?amount=10&category=12&difficulty=easy&type=multiple'
         );
-        console.log(response);
         setQuestions(response.data.results);
         setLoading(false);
       } catch (error) {
@@ -33,18 +41,23 @@ function EasyMusicQuiz() {
     fetchQuestions();
   }, []);
 
-  const handleAnswerClick = (isCorrect: boolean) => {
-    if (isCorrect) {
+  const handleAnswerClick = (answer: string) => {
+    setSelectedAnswer(answer);
+    if (answer === questions[currentQuestionIndex].correct_answer) {
       setScore(score + 1);
     }
+  };
+
+  const moveToNextQuestion = () => {
     setCurrentQuestionIndex(currentQuestionIndex + 1);
+    setSelectedAnswer(null);
   };
 
   if (loading) {
     return (
-      <Text color="white" align="center" ta="center">
-        Loading questions...
-      </Text>
+      <Box mt="lg" ta="center">
+        <Loader />
+      </Box>
     );
   }
 
@@ -66,7 +79,7 @@ function EasyMusicQuiz() {
   ].sort(() => Math.random() - 0.5);
 
   return (
-    <Flex align="center">
+    <Flex>
       <Container>
         <Paper p="xl" shadow="xs">
           <Text size="xl" weight={700}>
@@ -78,14 +91,36 @@ function EasyMusicQuiz() {
               <Button
                 mt="sm"
                 fullWidth
-                onClick={() =>
-                  handleAnswerClick(answer === currentQuestion.correct_answer)
+                onClick={() => handleAnswerClick(answer)}
+                color={
+                  selectedAnswer
+                    ? answer === questions[currentQuestionIndex].correct_answer
+                      ? 'teal'
+                      : answer === selectedAnswer
+                      ? 'red'
+                      : 'gray'
+                    : 'gray'
                 }
               >
                 {he.decode(answer)}
               </Button>
             </Box>
           ))}
+
+          {selectedAnswer !== null && (
+            <Box>
+              <Button
+                mt="md"
+                fullWidth
+                color="indigo"
+                onClick={moveToNextQuestion}
+              >
+                {currentQuestionIndex < questions.length - 1
+                  ? 'Next question'
+                  : 'Finish quiz'}
+              </Button>
+            </Box>
+          )}
         </Paper>
       </Container>
     </Flex>
