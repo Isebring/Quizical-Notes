@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Container,
   Overlay,
@@ -73,7 +74,7 @@ function HeroSection() {
   const { classes } = useStyles();
 
   return (
-    <div className={classes.hero}>
+    <Box className={classes.hero}>
       <Overlay
         gradient="linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, .65) 40%)"
         opacity={1}
@@ -85,17 +86,16 @@ function HeroSection() {
           A quiz app made for music lovers. Test your knowledge, challenge a
           friend, who will get the highest score?
         </Text>
-
         <Button
           variant="gradient"
           size="xl"
           radius="xl"
           className={classes.control}
         >
-          Learn More
+          More Info
         </Button>
       </Container>
-    </div>
+    </Box>
   );
 }
 
