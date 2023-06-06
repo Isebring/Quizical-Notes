@@ -9,7 +9,7 @@ interface Question {
   incorrect_answers: string[];
 }
 
-function EasyMusicQuiz() {
+function MediumMusicQuiz() {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
@@ -19,9 +19,8 @@ function EasyMusicQuiz() {
     const fetchQuestions = async () => {
       try {
         const response = await axios.get(
-          'https://opentdb.com/api.php?amount=10&category=12&difficulty=easy&type=multiple'
+          'https://opentdb.com/api.php?amount=10&category=12&difficulty=medium&type=multiple'
         );
-        console.log(response);
         setQuestions(response.data.results);
         setLoading(false);
       } catch (error) {
@@ -92,4 +91,4 @@ function EasyMusicQuiz() {
   );
 }
 
-export default EasyMusicQuiz;
+export default MediumMusicQuiz;

@@ -12,11 +12,15 @@ function Homepage() {
         </Title>
 
         <Group mt="lg" position="center">
-          <Link to="/quiz">
+          <Link to="/quiz/easy">
             <Button>Easy</Button>
           </Link>
-          <Button>Medium</Button>
-          <Button>Hard</Button>
+          <Link to="/quiz/medium">
+            <Button>Medium</Button>
+          </Link>
+          <Link to="/quiz/hard">
+            <Button>Hard</Button>
+          </Link>
         </Group>
       </Container>
     </>
