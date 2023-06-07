@@ -7,7 +7,13 @@ function Homepage() {
     <>
       <HeroSection />
       <Container>
-        <Title mt="md" ta="center" order={2}>
+        <Title
+          variant="gradient"
+          gradient={{ from: 'indigo', to: 'dark', deg: 45 }}
+          mt="md"
+          ta="center"
+          order={2}
+        >
           Choose difficulty!
         </Title>
 

@@ -56,7 +56,8 @@ function EasyMusicQuiz() {
   if (loading) {
     return (
       <Box mt="lg" ta="center">
-        <Loader />
+        <Loader size="xl" />
+        <Text ta="center">Loading Questions...</Text>
       </Box>
     );
   }
@@ -79,7 +80,7 @@ function EasyMusicQuiz() {
   ].sort(() => Math.random() - 0.5);
 
   return (
-    <Flex>
+    <Flex justify="center" align="center" style={{ minHeight: '100vh' }}>
       <Container>
         <Paper p="xl" shadow="xs">
           <Text size="xl" weight={700}>
@@ -101,9 +102,17 @@ function EasyMusicQuiz() {
                       : 'gray'
                     : 'gray'
                 }
+                disabled={selectedAnswer ? answer !== selectedAnswer : false}
               >
                 {he.decode(answer)}
               </Button>
+              {selectedAnswer === answer && (
+                <Text ta="center">
+                  {answer === questions[currentQuestionIndex].correct_answer
+                    ? 'Correct!'
+                    : 'Incorrect!'}
+                </Text>
+              )}
             </Box>
           ))}
 

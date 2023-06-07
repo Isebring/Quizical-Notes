@@ -17,7 +17,7 @@ interface Question {
   incorrect_answers: string[];
 }
 
-function MediumMusicQuiz() {
+function HardMusicQuiz() {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
@@ -28,7 +28,7 @@ function MediumMusicQuiz() {
     const fetchQuestions = async () => {
       try {
         const response = await axios.get(
-          'https://opentdb.com/api.php?amount=10&category=12&difficulty=medium&type=multiple'
+          'https://opentdb.com/api.php?amount=10&category=12&difficulty=hard&type=multiple'
         );
         setQuestions(response.data.results);
         setLoading(false);
@@ -136,4 +136,4 @@ function MediumMusicQuiz() {
   );
 }
 
-export default MediumMusicQuiz;
+export default HardMusicQuiz;

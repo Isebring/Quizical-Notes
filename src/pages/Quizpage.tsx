@@ -1,6 +1,6 @@
-import { Box } from '@mantine/core';
 import { useParams } from 'react-router-dom';
 import EasyMusicQuiz from '../components/EasyMusicQuiz';
+import HardMusicQuiz from '../components/HardMusicQuiz';
 import MediumMusicQuiz from '../components/MediumMusicQuiz';
 
 function Quizpage() {
@@ -11,8 +11,7 @@ function Quizpage() {
   } else if (difficulty === 'medium') {
     return <MediumMusicQuiz />;
   } else {
-    // Render HardMusicQuiz when it's created
-    return <Box>Hard quiz not implemented yet</Box>;
+    return <HardMusicQuiz />;
   }
 }
 
