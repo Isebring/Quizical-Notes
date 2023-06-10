@@ -56,10 +56,14 @@ function MediumMusicQuiz() {
 
   if (loading) {
     return (
-      <Box mt="lg" ta="center">
-        <Loader size="xl" />
-        <Text ta="center">Loading Questions...</Text>
-      </Box>
+      <Flex justify="center" align="center" style={{ minHeight: '100vh' }}>
+        <Box mt="lg" ta="center">
+          <Card shadow="md">
+            <Loader size="xl" />
+            <Text ta="center">Loading Questions...</Text>
+          </Card>
+        </Box>
+      </Flex>
     );
   }
 
