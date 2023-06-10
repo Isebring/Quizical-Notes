@@ -24,6 +24,7 @@ function EasyMusicQuiz() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
   const [score, setScore] = useState<number>(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
+  const [answeredCorrectly, setAnsweredCorrectly] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchQuestions = async () => {
@@ -44,14 +45,19 @@ function EasyMusicQuiz() {
 
   const handleAnswerClick = (answer: string) => {
     setSelectedAnswer(answer);
-    if (answer === questions[currentQuestionIndex].correct_answer) {
+    if (
+      !answeredCorrectly &&
+      answer === questions[currentQuestionIndex].correct_answer
+    ) {
       setScore(score + 1);
+      setAnsweredCorrectly(true);
     }
   };
 
   const moveToNextQuestion = () => {
     setCurrentQuestionIndex(currentQuestionIndex + 1);
     setSelectedAnswer(null);
+    setAnsweredCorrectly(false);
   };
 
   if (loading) {
