@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  Card,
   Container,
   Flex,
   Loader,
@@ -66,11 +67,15 @@ function HardMusicQuiz() {
 
   if (currentQuestionIndex >= questions.length) {
     return (
-      <Container>
-        <Text ta="center">
-          Quiz Completed! Your score: {score} / {questions.length}
-        </Text>
-      </Container>
+      <Flex justify="center" align="center" style={{ minHeight: '100vh' }}>
+        <Container>
+          <Card shadow="md">
+            <Text ta="center">
+              Quiz Completed! Your score is: {score} / {questions.length}
+            </Text>
+          </Card>
+        </Container>
+      </Flex>
     );
   }
 
