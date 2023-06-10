@@ -8,6 +8,7 @@ import {
   createStyles,
   rem,
 } from '@mantine/core';
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = createStyles((theme) => ({
   hero: {
@@ -72,6 +73,14 @@ const useStyles = createStyles((theme) => ({
 
 function HeroSection() {
   const { classes } = useStyles();
+  const navigate = useNavigate();
+
+  const handleRandomDifficulty = () => {
+    const difficulties = ['easy', 'medium', 'hard'];
+    const randomDifficulty =
+      difficulties[Math.floor(Math.random() * difficulties.length)];
+    navigate(`/quiz/${randomDifficulty}`);
+  };
 
   return (
     <Box className={classes.hero}>
@@ -91,8 +100,9 @@ function HeroSection() {
           size="xl"
           radius="xl"
           className={classes.control}
+          onClick={handleRandomDifficulty}
         >
-          More Info
+          Random Difficulty
         </Button>
       </Container>
     </Box>

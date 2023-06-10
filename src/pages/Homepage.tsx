@@ -19,13 +19,13 @@ function Homepage() {
 
         <Group mt="lg" position="center">
           <Link to="/quiz/easy">
-            <Button>Easy</Button>
+            <Button color="teal">Easy</Button>
           </Link>
           <Link to="/quiz/medium">
-            <Button>Medium</Button>
+            <Button color="grape">Medium</Button>
           </Link>
           <Link to="/quiz/hard">
-            <Button>Hard</Button>
+            <Button color="violet">Hard</Button>
           </Link>
         </Group>
       </Container>
