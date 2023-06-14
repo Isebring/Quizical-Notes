@@ -92,12 +92,12 @@ function HeroSection() {
       <Container className={classes.container}>
         <Title className={classes.title}>Quizical Notes</Title>
         <Text className={classes.description} size="xl" mt="xl">
-          A quiz app made for music lovers. Test your knowledge, challenge a
-          friend, who will get the highest score?
+          A quiz app made for music lovers. Test your knowledge, master every
+          difficulty? Put your music skills to the test!
         </Text>
         <Button
           variant="gradient"
-          size="xl"
+          size="md"
           radius="xl"
           className={classes.control}
           onClick={handleRandomDifficulty}
