@@ -1,4 +1,4 @@
-import { Button, Container, Group, Title } from '@mantine/core';
+import { Box, Button, Container, Group, Title } from '@mantine/core';
 import { Link } from 'react-router-dom';
 import HeroSection from '../components/Herosection';
 
@@ -7,27 +7,44 @@ function Homepage() {
     <>
       <HeroSection />
       <Container>
-        <Title
-          variant="gradient"
-          gradient={{ from: 'indigo', to: 'dark', deg: 45 }}
-          mt="md"
-          ta="center"
-          order={2}
+        <Box
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
         >
-          Choose difficulty!
-        </Title>
+          <Box>
+            <Title
+              variant="gradient"
+              gradient={{ from: 'indigo', to: 'dark', deg: 45 }}
+              mt="md"
+              ta="center"
+              order={1}
+            >
+              Choose difficulty!
+            </Title>
 
-        <Group mt="lg" position="center">
-          <Link to="/quiz/easy">
-            <Button color="teal">Easy</Button>
-          </Link>
-          <Link to="/quiz/medium">
-            <Button color="grape">Medium</Button>
-          </Link>
-          <Link to="/quiz/hard">
-            <Button color="violet">Hard</Button>
-          </Link>
-        </Group>
+            <Group mt="lg" position="center">
+              <Link to="/quiz/easy">
+                <Button color="teal">Easy</Button>
+              </Link>
+              <Link to="/quiz/medium">
+                <Button color="grape">Medium</Button>
+              </Link>
+              <Link to="/quiz/hard">
+                <Button color="violet">Hard</Button>
+              </Link>
+            </Group>
+          </Box>
+          <Box>
+            <img
+              style={{ height: '35rem', width: '36rem' }}
+              src="/src/assets/imgs/happy-instruments.png"
+              alt="Happy instruments playing music and singing"
+            ></img>
+          </Box>
+        </Box>
       </Container>
     </>
   );
