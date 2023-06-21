@@ -29,11 +29,13 @@ function Homepage() {
           >
             <Box>
               <Title
+                sx={{ fontSize: '3.5rem' }}
                 variant="gradient"
-                gradient={{ from: 'white', to: 'indigo', deg: 35 }}
+                gradient={{ from: 'white', to: 'indigo', deg: 45 }}
                 mt="md"
                 mb="xl"
                 ta="center"
+                fw={700}
                 order={1}
               >
                 Choose difficulty!
