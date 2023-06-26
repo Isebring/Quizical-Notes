@@ -4,13 +4,16 @@ import {
   Card,
   Container,
   Flex,
+  Group,
   Loader,
   Paper,
   Text,
+  Title,
 } from '@mantine/core';
 import axios from 'axios';
 import he from 'he';
 import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 interface Question {
   question: string;
@@ -25,6 +28,15 @@ function EasyMusicQuiz() {
   const [score, setScore] = useState<number>(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [answeredCorrectly, setAnsweredCorrectly] = useState<boolean>(false);
+
+  const navigate = useNavigate();
+
+  const handleRandomDifficulty = () => {
+    const difficulties = ['easy', 'medium', 'hard'];
+    const randomDifficulty =
+      difficulties[Math.floor(Math.random() * difficulties.length)];
+    navigate(`/quiz/${randomDifficulty}`);
+  };
 
   useEffect(() => {
     const fetchQuestions = async () => {
@@ -80,9 +92,24 @@ function EasyMusicQuiz() {
       <Flex justify="center" align="center" style={{ minHeight: '100vh' }}>
         <Container>
           <Card shadow="md">
-            <Text ta="center">
+            <Title order={3} ta="center">
               Quiz Completed! Your score is: {score} / {questions.length}
+            </Title>
+            <Text mt="sm" mb="sm" ta="center">
+              Up for another round? Choose difficulty below{' '}
             </Text>
+            <Group mt="md" position="right">
+              <Link to="/quiz/easy">
+                <Button color="teal">Easy</Button>
+              </Link>
+              <Button
+                variant="gradient"
+                radius="sm"
+                onClick={handleRandomDifficulty}
+              >
+                Random
+              </Button>
+            </Group>
           </Card>
         </Container>
       </Flex>

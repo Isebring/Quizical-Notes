@@ -23,7 +23,15 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <MantineProvider withGlobalStyles withNormalizeCSS>
+    <MantineProvider
+      theme={{
+        headings: {
+          fontFamily: 'Belanosima, sans-serif',
+        },
+      }}
+      withGlobalStyles
+      withNormalizeCSS
+    >
       <RouterProvider router={router} />
     </MantineProvider>
   </React.StrictMode>
