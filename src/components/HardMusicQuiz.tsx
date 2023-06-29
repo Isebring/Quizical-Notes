@@ -28,6 +28,8 @@ function HardMusicQuiz() {
   const [score, setScore] = useState<number>(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [answeredCorrectly, setAnsweredCorrectly] = useState<boolean>(false);
+  const [fetchingQuestions, setFetchingQuestions] = useState<boolean>(false);
+  const [questionsFetched, setQuestionsFetched] = useState<boolean>(false);
 
   const navigate = useNavigate();
 
@@ -39,21 +41,35 @@ function HardMusicQuiz() {
   };
 
   useEffect(() => {
-    const fetchQuestions = async () => {
-      try {
-        const response = await axios.get(
-          'https://opentdb.com/api.php?amount=10&category=12&difficulty=hard&type=multiple'
-        );
-        setQuestions(response.data.results);
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching questions:', error);
-        setLoading(false);
-      }
-    };
+    if (!questionsFetched) {
+      fetchQuestions();
+    }
+  }, [questionsFetched]);
 
-    fetchQuestions();
-  }, []);
+  const fetchQuestions = async () => {
+    setFetchingQuestions(true);
+    try {
+      const response = await axios.get(
+        'https://opentdb.com/api.php?amount=10&category=12&difficulty=easy&type=multiple'
+      );
+      setQuestions(response.data.results);
+      setLoading(false);
+      setFetchingQuestions(false);
+      setQuestionsFetched(true);
+    } catch (error) {
+      console.error('Error fetching questions:', error);
+      setLoading(false);
+      setFetchingQuestions(false);
+    }
+  };
+
+  const handleRestart = () => {
+    setQuestionsFetched(false);
+    setCurrentQuestionIndex(0);
+    setScore(0);
+    setSelectedAnswer(null);
+    setAnsweredCorrectly(false);
+  };
 
   const handleAnswerClick = (answer: string) => {
     setSelectedAnswer(answer);
@@ -99,8 +115,10 @@ function HardMusicQuiz() {
               Up for another round? Choose difficulty below{' '}
             </Text>
             <Group mt="md" position="right">
-              <Link to="quiz/hard">
-                <Button color="teal">Hard</Button>
+              <Link to="/quiz/hard">
+                <Button onClick={handleRestart} color="teal">
+                  Hard
+                </Button>
               </Link>
               <Button
                 variant="gradient"

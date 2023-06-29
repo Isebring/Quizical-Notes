@@ -28,6 +28,8 @@ function MediumMusicQuiz() {
   const [score, setScore] = useState<number>(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [answeredCorrectly, setAnsweredCorrectly] = useState<boolean>(false);
+  const [fetchingQuestions, setFetchingQuestions] = useState<boolean>(false);
+  const [questionsFetched, setQuestionsFetched] = useState<boolean>(false);
 
   const navigate = useNavigate();
 
@@ -39,22 +41,35 @@ function MediumMusicQuiz() {
   };
 
   useEffect(() => {
-    const fetchQuestions = async () => {
-      try {
-        const response = await axios.get(
-          'https://opentdb.com/api.php?amount=10&category=12&difficulty=medium&type=multiple'
-        );
-        setQuestions(response.data.results);
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching questions:', error);
-        setLoading(false);
-      }
-    };
+    if (!questionsFetched) {
+      fetchQuestions();
+    }
+  }, [questionsFetched]);
 
-    fetchQuestions();
-  }, []);
+  const fetchQuestions = async () => {
+    setFetchingQuestions(true);
+    try {
+      const response = await axios.get(
+        'https://opentdb.com/api.php?amount=10&category=12&difficulty=easy&type=multiple'
+      );
+      setQuestions(response.data.results);
+      setLoading(false);
+      setFetchingQuestions(false);
+      setQuestionsFetched(true);
+    } catch (error) {
+      console.error('Error fetching questions:', error);
+      setLoading(false);
+      setFetchingQuestions(false);
+    }
+  };
 
+  const handleRestart = () => {
+    setQuestionsFetched(false);
+    setCurrentQuestionIndex(0);
+    setScore(0);
+    setSelectedAnswer(null);
+    setAnsweredCorrectly(false);
+  };
   const handleAnswerClick = (answer: string) => {
     setSelectedAnswer(answer);
     if (
@@ -100,7 +115,9 @@ function MediumMusicQuiz() {
             </Text>
             <Group mt="md" position="right">
               <Link to="/medium">
-                <Button color="teal">Medium</Button>
+                <Button onClick={handleRestart} color="teal">
+                  Medium
+                </Button>
               </Link>
               <Button
                 variant="gradient"
