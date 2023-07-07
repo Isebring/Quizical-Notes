@@ -92,9 +92,11 @@ function HardMusicQuiz() {
     return (
       <Flex justify="center" align="center" style={{ minHeight: '100vh' }}>
         <Box mt="lg" ta="center">
-          <Card shadow="md">
+          <Card shadow="md" sx={{ background: '#56ADD3' }}>
             <Loader size="xl" />
-            <Text ta="center">Loading Questions...</Text>
+            <Text color="white" ta="center">
+              Loading Questions...
+            </Text>
           </Card>
         </Box>
       </Flex>

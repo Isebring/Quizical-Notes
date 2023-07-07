@@ -1,9 +1,11 @@
 import {
   Box,
   Button,
+  Card,
   Container,
   Group,
   MediaQuery,
+  Text,
   Title,
 } from '@mantine/core';
 import { Link } from 'react-router-dom';
@@ -52,14 +54,26 @@ function Homepage() {
                   <Button color="violet">Hard</Button>
                 </Link>
               </Group>
+              <img
+                style={{ height: '40%', width: '50%' }}
+                src="/src/assets/imgs/happy-instruments2.png"
+                alt="Happy instruments playing music and singing"
+              ></img>
             </Box>
 
             <Box>
               <img
-                style={{ height: '40%', width: '60%' }}
+                style={{ height: '40%', width: '40%' }}
                 src="/src/assets/imgs/happy-instruments.png"
                 alt="Happy instruments playing music and singing"
               ></img>
+              <Card shadow="md" sx={{ background: '#56ADD3' }} mt="md">
+                <Text color="white" ta="left">
+                  Quizical notes comes with three difficulties: Easy, Medium and
+                  Hard. Once every turn is done, you can choose to retry that
+                  same difficulty or choose a random difficulty. 🎵🎶{' '}
+                </Text>
+              </Card>
             </Box>
           </Box>
         </MediaQuery>
