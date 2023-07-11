@@ -125,8 +125,11 @@ function MediumMusicQuiz() {
             <Text mt="sm" mb="sm" ta="center">
               Up for another round? Choose difficulty below{' '}
             </Text>
-            <Group mt="md" position="right">
-              <Link to="/medium">
+            <Group mt="md" position="center">
+              <Link to="/">
+                <Button variant="outline">Start Page</Button>
+              </Link>
+              <Link to="/quiz/medium">
                 <Button onClick={handleRestart} color="teal">
                   Medium
                 </Button>
@@ -138,7 +141,7 @@ function MediumMusicQuiz() {
               >
                 Random
               </Button>
-            </Group>
+            </Group>{' '}
           </Card>
         </Container>
       </Flex>

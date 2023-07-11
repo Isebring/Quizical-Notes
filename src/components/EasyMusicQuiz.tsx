@@ -126,7 +126,11 @@ function EasyMusicQuiz() {
             <Text mt="sm" mb="sm" ta="center">
               Up for another round? Choose difficulty below{' '}
             </Text>
-            <Group mt="md" position="right">
+
+            <Group mt="md" position="center">
+              <Link to="/">
+                <Button variant="outline">Start Page</Button>
+              </Link>
               <Link to="/quiz/easy">
                 <Button onClick={handleRestart} color="teal">
                   Easy
