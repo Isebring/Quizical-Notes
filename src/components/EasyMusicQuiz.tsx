@@ -111,8 +111,11 @@ function EasyMusicQuiz() {
         <Container>
           <Card shadow="md">
             <Title order={3} ta="center">
-              Quiz Completed! Your score is: {score} / {questions.length}
+              Quiz Completed!
             </Title>
+            <Text size="md" fw="bold">
+              Your score is: {score} / {questions.length}
+            </Text>
             <Text mt="sm" mb="sm" ta="center">
               Up for another round? Choose difficulty below{' '}
             </Text>
