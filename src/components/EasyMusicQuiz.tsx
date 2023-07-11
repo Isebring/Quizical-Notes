@@ -113,7 +113,14 @@ function EasyMusicQuiz() {
             <Title order={3} ta="center">
               Quiz Completed!
             </Title>
-            <Text size="md" fw="bold">
+            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+              <img
+                style={{ height: '40%', width: '30%' }}
+                src="/src/assets/imgs/encouraging-instruments.png"
+                alt="Instruments encouraging the user to the quiz again"
+              ></img>
+            </Box>
+            <Text size="lg" ta="center" fw="bold">
               Your score is: {score} / {questions.length}
             </Text>
             <Text mt="sm" mb="sm" ta="center">
