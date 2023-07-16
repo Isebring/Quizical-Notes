@@ -67,7 +67,7 @@ function Homepage() {
                 src="/src/assets/imgs/happy-instruments.png"
                 alt="Happy instruments playing music and singing"
               ></img>
-              <Card shadow="md" sx={{ background: '#56ADD3' }} mt="md">
+              <Card shadow="lg" sx={{ background: '#56ADD3' }} mt="md">
                 <Text color="white" ta="left">
                   Quizical notes comes with three difficulties: Easy, Medium and
                   Hard. Once every turn is done, you can choose to retry that
