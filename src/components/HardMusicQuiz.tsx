@@ -1,4 +1,5 @@
 import {
+  Badge,
   Box,
   Button,
   Card,
@@ -9,11 +10,11 @@ import {
   Paper,
   Text,
   Title,
-} from '@mantine/core';
-import axios from 'axios';
-import he from 'he';
-import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+} from "@mantine/core";
+import axios from "axios";
+import he from "he";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 interface Question {
   question: string;
@@ -34,7 +35,7 @@ function HardMusicQuiz() {
   const navigate = useNavigate();
 
   const handleRandomDifficulty = () => {
-    const difficulties = ['easy', 'medium', 'hard'];
+    const difficulties = ["easy", "medium", "hard"];
     const randomDifficulty =
       difficulties[Math.floor(Math.random() * difficulties.length)];
     navigate(`/quiz/${randomDifficulty}`);
@@ -50,14 +51,14 @@ function HardMusicQuiz() {
     setFetchingQuestions(true);
     try {
       const response = await axios.get(
-        'https://opentdb.com/api.php?amount=10&category=12&difficulty=easy&type=multiple'
+        "https://opentdb.com/api.php?amount=10&category=12&difficulty=easy&type=multiple"
       );
       setQuestions(response.data.results);
       setLoading(false);
       setFetchingQuestions(false);
       setQuestionsFetched(true);
     } catch (error) {
-      console.error('Error fetching questions:', error);
+      console.error("Error fetching questions:", error);
       setLoading(false);
       setFetchingQuestions(false);
     }
@@ -90,9 +91,9 @@ function HardMusicQuiz() {
 
   if (loading) {
     return (
-      <Flex justify="center" align="center" style={{ minHeight: '100vh' }}>
+      <Flex justify="center" align="center" style={{ minHeight: "100vh" }}>
         <Box mt="lg" ta="center">
-          <Card shadow="md" sx={{ background: '#56ADD3' }}>
+          <Card shadow="md" sx={{ background: "#56ADD3" }}>
             <Loader size="xl" />
             <Text color="white" ta="center">
               Loading Questions...
@@ -107,15 +108,15 @@ function HardMusicQuiz() {
 
   if (currentQuestionIndex >= questions.length) {
     return (
-      <Flex justify="center" align="center" style={{ minHeight: '100vh' }}>
+      <Flex justify="center" align="center" style={{ minHeight: "100vh" }}>
         <Container>
           <Card shadow="md">
             <Title order={3} ta="center">
               Quiz Completed!
             </Title>
-            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Box sx={{ display: "flex", justifyContent: "center" }}>
               <img
-                style={{ height: '40%', width: '30%' }}
+                style={{ height: "40%", width: "30%" }}
                 src="/src/assets/imgs/encouraging-instruments.png"
                 alt="Instruments encouraging the user to the quiz again"
               ></img>
@@ -124,7 +125,7 @@ function HardMusicQuiz() {
               Your score is: {score} / {questions.length}
             </Text>
             <Text mt="sm" mb="sm" ta="center">
-              Up for another round? Choose difficulty below{' '}
+              Up for another round? Choose difficulty below{" "}
             </Text>
             <Group mt="md" position="center">
               <Link to="/">
@@ -155,9 +156,12 @@ function HardMusicQuiz() {
   ].sort(() => Math.random() - 0.5);
 
   return (
-    <Flex justify="center" align="center" style={{ minHeight: '100vh' }}>
+    <Flex justify="center" align="center" style={{ minHeight: "100vh" }}>
       <Container>
         <Paper p="xl" shadow="xs">
+          <Badge color="violet" size="sm">
+            Hard
+          </Badge>
           <Text size="xl" weight={700}>
             {he.decode(currentQuestion.question)}
           </Text>
@@ -171,11 +175,11 @@ function HardMusicQuiz() {
                 color={
                   selectedAnswer
                     ? answer === questions[currentQuestionIndex].correct_answer
-                      ? 'teal'
+                      ? "teal"
                       : answer === selectedAnswer
-                      ? 'red'
-                      : 'gray'
-                    : 'gray'
+                      ? "red"
+                      : "gray"
+                    : "gray"
                 }
                 disabled={selectedAnswer ? answer !== selectedAnswer : false}
               >
@@ -184,8 +188,8 @@ function HardMusicQuiz() {
               {selectedAnswer === answer && (
                 <Text ta="center">
                   {answer === questions[currentQuestionIndex].correct_answer
-                    ? 'Correct!'
-                    : 'Incorrect!'}
+                    ? "Correct!"
+                    : "Incorrect!"}
                 </Text>
               )}
             </Box>
@@ -200,8 +204,8 @@ function HardMusicQuiz() {
                 onClick={moveToNextQuestion}
               >
                 {currentQuestionIndex < questions.length - 1
-                  ? 'Next question'
-                  : 'Finish quiz'}
+                  ? "Next question"
+                  : "Finish quiz"}
               </Button>
             </Box>
           )}

@@ -7,9 +7,9 @@ import {
   MediaQuery,
   Text,
   Title,
-} from '@mantine/core';
-import { Link } from 'react-router-dom';
-import HeroSection from '../components/Herosection';
+} from "@mantine/core";
+import { Link } from "react-router-dom";
+import HeroSection from "../components/Herosection";
 
 function Homepage() {
   return (
@@ -19,21 +19,21 @@ function Homepage() {
         <MediaQuery
           query="(max-width: 800px)"
           styles={{
-            flexDirection: 'column',
+            flexDirection: "column",
           }}
         >
           <Box
             style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
             }}
           >
             <Box>
               <Title
-                sx={{ fontSize: '3.5rem' }}
+                sx={{ fontSize: "3.5rem" }}
                 variant="gradient"
-                gradient={{ from: 'white', to: 'indigo', deg: 45 }}
+                gradient={{ from: "white", to: "teal", deg: 545 }}
                 mt="md"
                 mb="xl"
                 ta="center"
@@ -55,7 +55,7 @@ function Homepage() {
                 </Link>
               </Group>
               <img
-                style={{ height: '40%', width: '50%' }}
+                style={{ height: "40%", width: "50%" }}
                 src="/src/assets/imgs/happy-instruments2.png"
                 alt="Happy instruments playing music and singing"
               ></img>
@@ -63,15 +63,15 @@ function Homepage() {
 
             <Box>
               <img
-                style={{ height: '40%', width: '40%' }}
+                style={{ height: "40%", width: "40%" }}
                 src="/src/assets/imgs/happy-instruments.png"
                 alt="Happy instruments playing music and singing"
               ></img>
-              <Card shadow="lg" sx={{ background: '#56ADD3' }} mt="md">
+              <Card shadow="lg" sx={{ background: "#56add396" }} mt="md">
                 <Text color="white" ta="left">
                   Quizical notes comes with three difficulties: Easy, Medium and
                   Hard. Once every turn is done, you can choose to retry that
-                  same difficulty or choose a random difficulty. 🎵🎶{' '}
+                  same difficulty or choose a random difficulty. 🎵🎶{" "}
                 </Text>
               </Card>
             </Box>
