@@ -117,7 +117,7 @@ function HardMusicQuiz() {
             <Box sx={{ display: "flex", justifyContent: "center" }}>
               <img
                 style={{ height: "40%", width: "30%" }}
-                src="./src/assets/imgs/encouraging-instruments.png"
+                src="../src/assets/imgs/encouraging-instruments.png"
                 alt="Instruments encouraging the user to the quiz again"
               ></img>
             </Box>

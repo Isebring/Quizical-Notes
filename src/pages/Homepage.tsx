@@ -56,7 +56,7 @@ function Homepage() {
               </Group>
               <img
                 style={{ height: "40%", width: "50%" }}
-                src="./src/assets/imgs/happy-instruments2.png"
+                src="../src/assets/imgs/happy-instruments2.png"
                 alt="Happy instruments playing music and singing"
               ></img>
             </Box>
@@ -64,7 +64,7 @@ function Homepage() {
             <Box>
               <img
                 style={{ height: "40%", width: "40%" }}
-                src="./src/assets/imgs/happy-instruments.png"
+                src="../src/assets/imgs/happy-instruments.png"
                 alt="Happy instruments playing music and singing"
               ></img>
               <Card
