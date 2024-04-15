@@ -118,7 +118,7 @@ function EasyMusicQuiz() {
               <img
                 style={{ height: "40%", width: "30%" }}
                 src="/src/assets/imgs/encouraging-instruments.png"
-                alt="Instruments encouraging the user to the quiz again"
+                alt="Instruments encouraging the user to do the quiz again"
               ></img>
             </Box>
             <Text size="lg" ta="center" fw="bold">
@@ -163,6 +163,9 @@ function EasyMusicQuiz() {
           <Badge color="teal" size="sm">
             Easy
           </Badge>
+          <Text size="sm" mb="md" weight={500} ta="right" c="dimmed">
+            Question {currentQuestionIndex + 1} of {questions.length}
+          </Text>
           <Text size="xl" weight={700}>
             {he.decode(currentQuestion.question)}
           </Text>

@@ -161,6 +161,9 @@ function MediumMusicQuiz() {
           <Badge color="grape" size="sm">
             Medium
           </Badge>
+          <Text size="sm" mb="md" weight={500} ta="right" c="dimmed">
+            Question {currentQuestionIndex + 1} of {questions.length}
+          </Text>
           <Text size="xl" weight={700}>
             {he.decode(currentQuestion.question)}
           </Text>
