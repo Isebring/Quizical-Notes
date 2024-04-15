@@ -15,6 +15,7 @@ import axios from "axios";
 import he from "he";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import encouragingInstruments from "../assets/imgs/encouraging-instruments.png";
 
 interface Question {
   question: string;
@@ -117,7 +118,7 @@ function HardMusicQuiz() {
             <Box sx={{ display: "flex", justifyContent: "center" }}>
               <img
                 style={{ height: "40%", width: "30%" }}
-                src="../src/assets/imgs/encouraging-instruments.png"
+                src={encouragingInstruments}
                 alt="Instruments encouraging the user to the quiz again"
               ></img>
             </Box>

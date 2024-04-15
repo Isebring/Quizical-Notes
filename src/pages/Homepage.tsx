@@ -9,6 +9,8 @@ import {
   Title,
 } from "@mantine/core";
 import { Link } from "react-router-dom";
+import happyInstruments from "../assets/imgs/happy-instruments.png";
+import happyInstruments2 from "../assets/imgs/happy-instruments2.png";
 import HeroSection from "../components/Herosection";
 
 function Homepage() {
@@ -56,7 +58,7 @@ function Homepage() {
               </Group>
               <img
                 style={{ height: "40%", width: "50%" }}
-                src="../src/assets/imgs/happy-instruments2.png"
+                src={happyInstruments2}
                 alt="Happy instruments playing music and singing"
               ></img>
             </Box>
@@ -64,7 +66,7 @@ function Homepage() {
             <Box>
               <img
                 style={{ height: "40%", width: "40%" }}
-                src="../src/assets/imgs/happy-instruments.png"
+                src={happyInstruments}
                 alt="Happy instruments playing music and singing"
               ></img>
               <Card
