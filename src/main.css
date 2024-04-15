@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600;700&display=swap");
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,6 +6,6 @@
 }
 
 body {
-  background: url('/src/assets/imgs/mesh-bg.png') no-repeat center center fixed;
+  background: url("/src/assets/imgs/mesh-bg.png") no-repeat center fixed;
   background-size: cover;
 }
