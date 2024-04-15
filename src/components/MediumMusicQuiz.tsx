@@ -173,25 +173,51 @@ function MediumMusicQuiz() {
               <Button
                 mt="sm"
                 fullWidth
-                onClick={() => handleAnswerClick(answer)}
+                onClick={() => {
+                  if (
+                    !selectedAnswer ||
+                    (selectedAnswer &&
+                      selectedAnswer !==
+                        questions[currentQuestionIndex].correct_answer &&
+                      answer !== questions[currentQuestionIndex].correct_answer)
+                  ) {
+                    handleAnswerClick(answer);
+                  }
+                }}
                 color={
                   selectedAnswer
                     ? answer === questions[currentQuestionIndex].correct_answer
-                      ? "teal"
-                      : answer === selectedAnswer
+                      ? "green"
+                      : selectedAnswer === answer
                       ? "red"
-                      : "gray"
-                    : "gray"
+                      : "lightgray"
+                    : "blue"
                 }
-                disabled={selectedAnswer ? answer !== selectedAnswer : false}
+                disabled={
+                  selectedAnswer
+                    ? (selectedAnswer ===
+                        questions[currentQuestionIndex].correct_answer ||
+                        answer !== selectedAnswer) &&
+                      answer !== questions[currentQuestionIndex].correct_answer
+                    : false
+                }
               >
                 {he.decode(answer)}
               </Button>
               {selectedAnswer === answer && (
-                <Text ta="center">
+                <Text
+                  ta="center"
+                  style={{
+                    color:
+                      answer === questions[currentQuestionIndex].correct_answer
+                        ? "green"
+                        : "red",
+                  }}
+                >
                   {answer === questions[currentQuestionIndex].correct_answer
                     ? "Correct!"
-                    : "Incorrect!"}
+                    : "Incorrect! The correct answer was: " +
+                      he.decode(questions[currentQuestionIndex].correct_answer)}
                 </Text>
               )}
             </Box>
