@@ -35,7 +35,7 @@ function Homepage() {
               <Title
                 sx={{ fontSize: "3.5rem" }}
                 variant="gradient"
-                gradient={{ from: "white", to: "teal", deg: 545 }}
+                gradient={{ from: "lightgrey", to: "black", deg: 545 }}
                 mt="md"
                 mb="xl"
                 ta="center"
@@ -71,7 +71,7 @@ function Homepage() {
               ></img>
               <Card
                 shadow="lg"
-                sx={{ background: "#56add396" }}
+                sx={{ background: "#0a141895" }}
                 mt="md"
                 mb="lg"
               >

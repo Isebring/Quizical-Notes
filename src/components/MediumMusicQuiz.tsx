@@ -93,9 +93,9 @@ function MediumMusicQuiz() {
     return (
       <Flex justify="center" align="center" style={{ minHeight: "100vh" }}>
         <Box mt="lg" ta="center">
-          <Card shadow="md" sx={{ background: "#56ADD3" }}>
-            <Loader size="xl" />
-            <Text color="white" ta="center">
+          <Card shadow="md" sx={{ background: "#e9eff1" }}>
+            <Loader color="dark" size="xl" />
+            <Text color="dark" ta="center">
               Loading Questions...
             </Text>
           </Card>
@@ -129,7 +129,9 @@ function MediumMusicQuiz() {
             </Text>
             <Group mt="md" position="center">
               <Link to="/">
-                <Button variant="outline">Start Page</Button>
+                <Button variant="outline" color="dark">
+                  Start Page
+                </Button>
               </Link>
               <Link to="/quiz/medium">
                 <Button onClick={handleRestart} color="teal">
@@ -192,7 +194,7 @@ function MediumMusicQuiz() {
                       : selectedAnswer === answer
                       ? "red"
                       : "lightgray"
-                    : "blue"
+                    : "dark"
                 }
                 disabled={
                   selectedAnswer
@@ -229,7 +231,7 @@ function MediumMusicQuiz() {
               <Button
                 mt="md"
                 fullWidth
-                color="indigo"
+                color="dark"
                 onClick={moveToNextQuestion}
               >
                 {currentQuestionIndex < questions.length - 1
